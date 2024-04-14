@@ -83,10 +83,11 @@ if st.button('Process and Upload Text'):
 st.markdown("# Upload file: PDF")
 uploaded_file=st.file_uploader("Upload PDF file",type="pdf")
 if uploaded_file is not None:
-    if st.button('Process and Upload File'):
-        pdf_text = pdf_to_text(uploaded_file)
-        embedding = embed(pdf_text,uploaded_file.name)
-    st.write("# Welcome to Streamlit! 👋")
+    #if st.button('Process and Upload File'):
+    pdf_text = pdf_to_text(uploaded_file)
+    embedding = embed(pdf_text,uploaded_file.name)
+    with st.sidebar.expander("pdfcontent"):
+        st.write(pdf_text)
 
     st.sidebar.success("Select a demo above.")
 

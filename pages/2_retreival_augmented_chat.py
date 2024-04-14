@@ -39,11 +39,11 @@ def augmented_content(inp):
     #pinecone.init(api_key=PINECONE_API_KEY, environment=PINECONE_API_ENV)
     index = pc.Index(PINECONE_INDEX_NAME)
     results=index.query(vector=embedding,top_k=3,namespace="",include_metadata=True)
-    #print(f"Results: {results}")
-    #st.write(f"Results: {results}")
+    print(f"Results: {results}")
+    st.sidebar.write(f"Results: {results}")
     rr=[ r['metadata']['text'] for r in results['matches']]
     #print(f"RR: {rr}")
-    #st.write(f"RR: {rr}")
+    st.sidebar.write(f"RR: {rr}")
     return rr
 
 
